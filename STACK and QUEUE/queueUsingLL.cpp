@@ -71,7 +71,7 @@ int main()
 
     for(int i=1;i<=10;i++)
     {
-        cout<<"hello"<<qL.pop()<<endl;
+        cout<<qL.pop()<<endl;
     }
     
     return 0;
