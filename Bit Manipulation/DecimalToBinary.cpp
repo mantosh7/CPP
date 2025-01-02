@@ -16,13 +16,13 @@ string reverse(string str)
 string decimal_to_Bin(int num)
 {
     string str="";
-    while(num!=1)
+    while(num!=0)
     {
         if(num%2==1) str+="1";
         else str+="0";
         num/=2;
     }
-    return str+"1";
+    return str;
 }
 
 int main()
