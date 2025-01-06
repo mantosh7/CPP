@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    // Method 1 (optimmise code)
+    // Method 1 (optimise code)
     int arr1[]={1,1,2,3,4,5};
     int arr2[]={2,3,4,4,5,6};
     int n1=sizeof(arr1)/sizeof(arr1[0]);
