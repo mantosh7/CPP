@@ -164,4 +164,57 @@
 // }
 
 
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    vector<vector<int>>matrix;
+    int n = 3;
+    int minRow=0, maxRow=n-1, minCol=0, maxCol=n-1;
+        int m = 1;
 
+        while(minRow<=maxRow && minCol<=maxCol)
+        {
+            if(minRow<=maxRow && minCol<=maxCol)
+            {
+                for(int i=minCol;i<=maxCol;i++)
+                {
+                    matrix[minRow][i] = m;
+                    m++;
+                }
+                minRow++;
+            }
+            
+            if(minRow<=maxRow && minCol<=maxCol)
+            {
+                for(int i=minRow;i<=maxRow;i++)
+                {
+                    matrix[i][maxCol] = m;
+                    m++;
+                }
+                maxCol--;
+            }           
+
+            if(minRow<=maxRow && minCol<=maxCol)
+            {
+              for(int i=maxCol;i>=minCol;i--)
+                {
+                    matrix[maxRow][i] = m;
+                    m++;
+                }
+                maxRow--;  
+            }
+                       
+            if(minRow<=maxRow && minCol<=maxCol)
+            {
+               for(int i=maxRow;i>=minRow;i--)
+                {
+                    matrix[i][minCol] = m;
+                    m++;
+                }
+                minCol++; 
+            }
+        }
+        cout<<matrix[2][1];
+    return 0;
+}
