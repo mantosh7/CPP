@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Queue {
+class StackUsingQueue {
     public:
         queue<int> q;
 
@@ -34,7 +34,7 @@ class Queue {
 
 int main()
 {
-    Queue q;
+    StackUsingQueue q;
     for(int i=1;i<=10;i++)
     {
         q.push(i);
