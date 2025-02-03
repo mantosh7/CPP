@@ -31,10 +31,10 @@ int lowerBound(vector<int>& nums, int x)
 
 int main()
 {
-    vector<int> nums = {1,2,2,3};
-    int x = 2;
-    // vector<int> nums = {3,5,8,15,19};
-    // int x = 9;
+    // vector<int> nums = {1,2,2,3};
+    // int x = 2;
+    vector<int> nums = {3,5,8,15,19};
+    int x = 9;
 
     cout<<lowerBound(nums,x);
 }
