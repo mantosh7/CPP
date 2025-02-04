@@ -17,24 +17,28 @@ using namespace std;
 
 int lowerBound(vector<int>& nums, int x)
 {
-    int lbIdx = -1;
+    int n = nums.size() ;
+    int ans = n ;
     int low = 0, high = nums.size()-1 ;
     while(low<=high)
     {
         int mid = low + (high - low)/2 ;
         
-        if(nums[mid] < x) low = mid + 1;
-        else high = mid - 1;
+        if(nums[mid] >= x) {
+            ans = mid ;
+            high = mid - 1 ;
+        }
+        else low = mid + 1;
     }
     return low;
 }
 
 int main()
 {
-    // vector<int> nums = {1,2,2,3};
-    // int x = 2;
-    vector<int> nums = {3,5,8,15,19};
-    int x = 9;
+    vector<int> nums = {1,2,2,3};
+    int x = 2;
+    // vector<int> nums = {3,5,8,15,19};
+    // int x = 9;
 
     cout<<lowerBound(nums,x);
 }
