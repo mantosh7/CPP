@@ -13,7 +13,7 @@ int main()
     cout << "Enter no,of edges : ";
     cin >> m;
 
-    vector<vector<int>> adj(n + 1, vector<int>(n + 1, 0));
+    vector<vector<int>> adj(n+1, vector<int>(n+1 , 0));
     for (int i = 0; i < m; i++)
     {
         int u, v;
@@ -26,9 +26,9 @@ int main()
 
     cout << endl
          << "Adjacency Matrix: " << endl;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n+1; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < n+1; j++)
         {
             cout << adj[i][j] << " ";
         }

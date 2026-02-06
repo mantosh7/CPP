@@ -88,22 +88,39 @@
     
 // }
 
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
+// using namespace std;
+// // int arr[6];   // stores 0
+// int main()
+// {
+//     // int arr[6];  // stores garbage value
+//     // for(int i=0;i<6;i++)
+//     // {
+//     //     cout<<arr[i]<<" ";
+//     // }
+//     set<int> st{1,2,3,4};
+//     auto it1 = st.find(2);
+//     auto it2 = st.find(4);
+//     st.erase(it1,it2);
+//     for(auto it:st)
+//     {
+//         cout<<it<<" ";
+//     }
+// }
+
+
+
+#include<iostream>
 using namespace std;
-// int arr[6];   // stores 0
-int main()
-{
-    // int arr[6];  // stores garbage value
-    // for(int i=0;i<6;i++)
-    // {
-    //     cout<<arr[i]<<" ";
-    // }
-    set<int> st{1,2,3,4};
-    auto it1 = st.find(2);
-    auto it2 = st.find(4);
-    st.erase(it1,it2);
-    for(auto it:st)
-    {
-        cout<<it<<" ";
+int main(){
+    int n;
+    cout << "enter no of rows: ";
+    cin >> n;
+    for(int row = 0; row < n; row++){
+        for(int col = 0; col < n - row; col++){
+            cout << "*";
+        }
+        cout << endl;
     }
+    return 0;
 }
