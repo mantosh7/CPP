@@ -8,50 +8,66 @@ class Node{
         Node* left ;
         Node* right ;
 
-        Node(int val)
-        {
-            data = val ;
-            left = nullptr ;
-            right = nullptr ;
-        }
+        Node(int val): data(val), left(NULL), right(NULL) {}
 };
 
-void findPreorder(Node* root, vector<int>& preorder)
+Node* buildTreeLevelWise(vector<int>& nums)
 {
-    stack<Node*> st ;
-    Node* temp = root ;
+    int n = nums.size() ;
 
-    while(!st.empty() || temp!=nullptr)
+    Node* root = new Node(nums[0]) ;
+    queue<Node*> q ;
+    q.push(root) ;
+    int i=1 ;
+
+    while(!q.empty())
     {
-        if(temp != NULL)
+        Node* curr = q.front() ;
+        q.pop() ;
+
+        if(i<n && nums[i]!=-1)
         {
-            preorder.push_back(temp->data) ;
-            if(temp->right != nullptr) st.push(temp->right) ;
-            temp = temp->left ;
+            curr->left = new Node(nums[i]) ;
+            q.push(curr->left) ;
         }
-        else{
-            if(st.empty()) break ;
-            temp = st.top() ;
-            st.pop() ;
+        i++ ;
+
+        if(i<n && nums[i]!=-1)
+        {
+            curr->right = new Node(nums[i]) ;
+            q.push(curr->right) ;
         }
+        i++ ;
+    }
+
+    return root ;
+}
+
+// Agar mujhe level-wise separation nahi chahiye (Warna size lga ke traversal karna padega)
+void levelOrder(Node* root)
+{
+    queue<Node*> q ;
+    q.push(root) ;
+
+    while(!q.empty())
+    {
+        Node* curr = q.front() ;
+        q.pop() ;
+        cout<<curr->data<<" " ;
+
+        if(curr->left != NULL) q.push(curr->left) ;
+        if(curr->right != NULL) q.push(curr->right) ;
+        
     }
 }
 
 int main()
 {
-    Node* root = new Node(1) ;
-    root->left = new Node(2) ;
-    root->right = new Node(3) ;
-    root->left->left = new Node(4) ;
-    root->left->right = new Node(5) ;
+    vector<int> nums = {1, 2, 3, 4, 5, -1, 6, -1, -1, 7, 8} ;
 
-    if(root == nullptr)  cout<<"no tree exist."  ;
+    // Tree Creation
+    Node* root = buildTreeLevelWise(nums) ;
 
-    vector<int> preorder ;
-    findPreorder(root, preorder) ;
-
-    cout<<"Preorder : " ;
-    for(auto it: preorder) cout<<it<<" " ;
-
-    return 0 ;
+    // Tree Traversal Level-Wise
+    levelOrder(root) ;
 }
